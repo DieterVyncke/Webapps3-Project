@@ -5,8 +5,11 @@
 
 'use strict';
 
+var fs = require('fs');
+
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Whisky = require('../api/whisky/whisky.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -46,4 +49,22 @@ User.find({}).remove(function() {
       console.log('finished populating users');
     }
   );
+});
+
+var ardbegImg = 'server/assets/images/ardbeg.jpg';
+
+Whisky.find({}).remove(function() {
+  Whisky.create({
+    name: 'Ardbeg Ten',
+    color: 'Gold',
+    rating: 3.0,
+    tags: ['Islay', 'Peak'],
+    taste: 'Vreed lekker',
+    region: 'Islay',
+    image: 'assets/images/ardbeg.jpg',
+    percentage: '40',
+    description: 'dit is een beschrijving voor whisky 1',
+    years: '10',
+    nose: 'Lekker hoor'
+  });
 });

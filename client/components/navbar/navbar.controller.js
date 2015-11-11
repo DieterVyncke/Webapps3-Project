@@ -2,10 +2,16 @@
 
 angular.module('webapps3Project2App')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
+    $scope.menu = [
+      {
       'title': 'Home',
       'link': '/'
-    }];
+      },
+      {
+      'title': 'Whiskys',
+      'link': '/overview'
+      },
+    ];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
