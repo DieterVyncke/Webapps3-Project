@@ -1,0 +1,47 @@
+.page-header{
+  font-family: 'Lobster', cursive;
+  border-bottom: 0;
+}
+
+.header-container{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.whisky-overview{
+  height: 290px;
+  margin-bottom: 40px;
+
+  .inner-content{
+    border: 1px solid rgb(122, 64, 18);
+    height: 290px;
+
+    .image-container{
+      padding-top: 20px;
+      padding-bottom: 10px;
+      height: 230px;
+
+      img{
+        max-height:100%;
+        max-width:100%;
+      }
+    }
+
+    .text-container{
+      width: 100%;
+      background-color: rgb(122, 64, 18);
+      height: 60px;
+
+      h2{
+        font-size: 16px;
+        text-align: center;
+        margin: 0;
+        padding-top: 5px;
+
+        a{
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -52,6 +52,8 @@ User.find({}).remove(function() {
 });
 
 var ardbegImg = 'server/assets/images/ardbeg.jpg';
+var macallanImg = 'server/assets/images/macallan.jpg';
+var obanImg = 'server/assets/images/oban.jpg';
 
 Whisky.find({}).remove(function() {
   Whisky.create({
@@ -62,6 +64,66 @@ Whisky.find({}).remove(function() {
     taste: 'Vreed lekker',
     region: 'Islay',
     image: 'assets/images/ardbeg.jpg',
+    percentage: '40',
+    description: 'dit is een beschrijving voor whisky 1',
+    years: '10',
+    nose: 'Lekker hoor'
+  },{
+    name: 'Ardbeg Ten',
+    color: 'Gold',
+    rating: 3.0,
+    tags: ['Islay', 'Peak'],
+    taste: 'Vreed lekker',
+    region: 'Islay',
+    image: 'assets/images/macallan.jpg',
+    percentage: '40',
+    description: 'dit is een beschrijving voor whisky 1',
+    years: '10',
+    nose: 'Lekker hoor'
+  },{
+    name: 'Ardbeg Ten',
+    color: 'Gold',
+    rating: 3.0,
+    tags: ['Islay', 'Peak'],
+    taste: 'Vreed lekker',
+    region: 'Islay',
+    image: 'assets/images/oban.jpg',
+    percentage: '40',
+    description: 'dit is een beschrijving voor whisky 1',
+    years: '10',
+    nose: 'Lekker hoor'
+  },{
+    name: 'Ardbeg Ten',
+    color: 'Gold',
+    rating: 3.0,
+    tags: ['Islay', 'Peak'],
+    taste: 'Vreed lekker',
+    region: 'Islay',
+    image: 'assets/images/macallan.jpg',
+    percentage: '40',
+    description: 'dit is een beschrijving voor whisky 1',
+    years: '10',
+    nose: 'Lekker hoor'
+  },{
+    name: 'Ardbeg Ten',
+    color: 'Gold',
+    rating: 3.0,
+    tags: ['Islay', 'Peak'],
+    taste: 'Vreed lekker',
+    region: 'Islay',
+    image: 'assets/images/ardbeg.jpg',
+    percentage: '40',
+    description: 'dit is een beschrijving voor whisky 1',
+    years: '10',
+    nose: 'Lekker hoor'
+  },{
+    name: 'Ardbeg Ten',
+    color: 'Gold',
+    rating: 3.0,
+    tags: ['Islay', 'Peak'],
+    taste: 'Vreed lekker',
+    region: 'Islay',
+    image: 'assets/images/oban.jpg',
     percentage: '40',
     description: 'dit is een beschrijving voor whisky 1',
     years: '10',
