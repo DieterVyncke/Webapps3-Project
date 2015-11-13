@@ -14,6 +14,7 @@ angular.module('webapps3Project2App')
     ];
 
     $scope.isCollapsed = true;
+    console.log($scope.isCollapsed);
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;

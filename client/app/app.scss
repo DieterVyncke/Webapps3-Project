@@ -21,15 +21,30 @@ html, body{
   font-family: 'allerregular';
 }
 
+html{
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #FAFAFA;
+}
+
+.ui-view-container{
+  flex: 1 0 auto;
+}
+
 .small-banner img{
   height: 30px;
   width: 100%;
 }
 
-.container{
-  padding-left: 0;
-  padding-right: 0;
-}
+// .container{
+//   padding-left: 0;
+//   padding-right: 0;
+// }
 
 // .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2,
 // .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
@@ -50,6 +65,7 @@ html, body{
 @import 'admin/admin.scss';
 @import 'main/main.scss';
 @import 'overview/overview.scss';
+@import 'footer/footer.scss';
 @import 'modal/modal.scss';
 @import 'navbar/navbar.scss';
 // endinjector

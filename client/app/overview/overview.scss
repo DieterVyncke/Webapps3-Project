@@ -1,3 +1,5 @@
+$break-small: 470px;
+
 .page-header{
   font-family: 'Lobster', cursive;
   border-bottom: 0;
@@ -12,14 +14,20 @@
   height: 290px;
   margin-bottom: 40px;
 
+  @media screen and (max-width: $break-small) {
+   width: 100%;
+ }
+
   .inner-content{
     border: 1px solid rgb(122, 64, 18);
     height: 290px;
+    background-color: white;
 
     .image-container{
       padding-top: 20px;
       padding-bottom: 10px;
       height: 230px;
+      text-align: center;
 
       img{
         max-height:100%;
@@ -31,16 +39,25 @@
       width: 100%;
       background-color: rgb(122, 64, 18);
       height: 60px;
+      padding-top: 10px;
+      padding-bottom: 5px;
 
       h2{
-        font-size: 16px;
+        font-size: 17px;
         text-align: center;
         margin: 0;
-        padding-top: 5px;
+        text-transform: uppercase;
 
         a{
           color: white;
         }
+      }
+
+      h3{
+        font-size: 14px;
+        color: white;
+        text-align: center;
+        margin-top: 5px;
       }
     }
   }
