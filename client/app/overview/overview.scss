@@ -20,7 +20,7 @@ $break-small: 470px;
 
   .inner-content{
     border: 1px solid rgb(122, 64, 18);
-    height: 290px;
+    height: 292px;
     background-color: white;
 
     .image-container{
@@ -29,10 +29,10 @@ $break-small: 470px;
       height: 230px;
       text-align: center;
 
-      img{
-        max-height:100%;
-        max-width:100%;
-      }
+        img{
+          max-height:100%;
+          max-width:100%;
+        }
     }
 
     .text-container{
@@ -42,16 +42,16 @@ $break-small: 470px;
       padding-top: 10px;
       padding-bottom: 5px;
 
-      h2{
-        font-size: 17px;
-        text-align: center;
-        margin: 0;
-        text-transform: uppercase;
+        h2{
+          font-size: 17px;
+          text-align: center;
+          margin: 0;
+          text-transform: uppercase;
 
-        a{
-          color: white;
+          a{
+            color: white;
+          }
         }
-      }
 
       h3{
         font-size: 14px;
@@ -60,5 +60,9 @@ $break-small: 470px;
         margin-top: 5px;
       }
     }
+
+    .text-container:hover{
+      background-color: rgb(52, 34, 19);
   }
+}
 }
