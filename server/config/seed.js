@@ -10,6 +10,7 @@ var fs = require('fs');
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Whisky = require('../api/whisky/whisky.model');
+// var Comment = require('../api/comment/comment.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -55,78 +56,87 @@ var ardbegImg = 'server/assets/images/ardbeg.jpg';
 var macallanImg = 'server/assets/images/macallan.jpg';
 var obanImg = 'server/assets/images/oban.jpg';
 
+
+//creating whisky
+// var whisky = new Whisky({
+//   name: 'Ardbeg Ten',
+//   color: 'Gold',
+//   rating: 3.0,
+//   // tags: ['Islay', 'Peak'],
+//   taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
+//   nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
+//   region: 'Islay',
+//   image: 'assets/images/ardbeg.jpg',
+//   percentage: '40',
+//   description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
+//   years: '10',
+//   targetprice: 45.50,
+//   rare: false,
+//   // fk_comments: [{
+//   //   title: "test",
+//   //   body: "dit is maar een testcomment",
+//   //   rating: 4.2
+//   // }]
+// });
+//
+// whisky.save(function(err){
+//   if(err) return console.console.error(err);
+// })
+//
+// Whisky.find({}).remove(function() {
+//   Whisky.findOne({name: "Ardbeg Ten"}).exec(function(err, whisky){
+//     if(err)
+//     whisky.fk_comments.push({
+//       title: "test",
+//       body: "dit is maar een testcomment",
+//       rating: 4.2
+//     });
+//     whisky.save();
+//   })
+// });
+
+
+
+
+
 Whisky.find({}).remove(function() {
   Whisky.create({
     name: 'Ardbeg Ten',
     color: 'Gold',
     rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
+    taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
+    nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
     region: 'Islay',
     image: 'assets/images/ardbeg.jpg',
     percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
+    description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
     years: '10',
-    nose: 'Lekker hoor'
-  },{
-    name: 'Ardbeg Ten',
-    color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
-    region: 'Islay',
-    image: 'assets/images/macallan.jpg',
-    percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
-    years: '10',
-    nose: 'Lekker hoor'
-  },{
-    name: 'Ardbeg Ten',
-    color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
-    region: 'Islay',
-    image: 'assets/images/oban.jpg',
-    percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
-    years: '10',
-    nose: 'Lekker hoor'
-  },{
-    name: 'Ardbeg Ten',
-    color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
-    region: 'Islay',
-    image: 'assets/images/macallan.jpg',
-    percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
-    years: '10',
-    nose: 'Lekker hoor'
-  },{
-    name: 'Ardbeg Ten',
-    color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
-    region: 'Islay',
-    image: 'assets/images/ardbeg.jpg',
-    percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
-    years: '10',
-    nose: 'Lekker hoor'
-  },{
-    name: 'Ardbeg Ten',
-    color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
-    region: 'Islay',
-    image: 'assets/images/oban.jpg',
-    percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
-    years: '10',
-    nose: 'Lekker hoor'
+    targetprice: 45.50,
+    rare: false,
+    // fk_comments: [{
+    //   title: "test",
+    //   body: "dit is maar een testcomment",
+    //   rating: 4.2,
+    // }]
   });
 });
+
+
+
+// exports.seedComments = function seedComments(){
+//   Comment.find({}).exec(function(err, collection){
+//   if (collection.length === 0) {
+//             Comment.create(
+//               {
+//                 title: 'Comment One',
+//                 body: 'gewoon wat commentaar',
+//                 rating: 3.0,
+//               });
+//             Comment.create({
+//               title: 'Comment Two',
+//               body: 'gewoon wat commentaar',
+//               rating: 3.0,
+//             });
+//     }
+//   })
+// }
