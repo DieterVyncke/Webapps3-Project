@@ -6,8 +6,8 @@ var mongoose = require('mongoose'),
 var CommentSchema = new Schema({
   title: String,
   body: String,
-  rating: Number,
-  whisky: [{type: mongoose.Schema.Types.ObjectId, ref: 'Whisky'}]
+  rating: {type: Number, min: 0.0, max: 5.0},
+  whisky: {type: mongoose.Schema.Types.ObjectId, ref: 'Whisky'}
 });
 
 module.exports = mongoose.model('Comment', CommentSchema);

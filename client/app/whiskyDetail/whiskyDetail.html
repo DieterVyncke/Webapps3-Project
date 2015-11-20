@@ -1,8 +1,8 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="small-banner"><img ng-src="../assets/images/small-banner.jpg"/></div>
 
-<div class="container">
-  <h2 class="back-button"><< Back</h2>
+<div class="container back-button-container">
+  <a class="back-button" href="/overview"><< Back</a>
 </div>
 
 <div class="container whisky-detail-container">
@@ -15,15 +15,18 @@
       </div>
       <div class="right-column col-lg-8 col-md-8 col-sm-8 col-xs-8">
         <div class="text-container">
-          <h2>{{whisky.name}}</h2>
-          <h6>{{whisky.color}}</h6>
-          <h6>{{whisky.rating}}</h6>
-          <h6>{{whisky.targetprice}}</h6>
-          <h6>{{whisky.region}}</h6>
-          <h6>{{whisky.targetprice}}</h6>
-          <h6>{{whisky.releasedate}}</h6>
-          <h6>{{whisky.description}}</h6>
-          <h6>{{whisky.years}}</h6>
+          <h2 class="title">{{whisky.name}} <span>({{whisky.percentage}}%)</span></h2>
+
+            <ul class="whisky-specs">
+              <li><h6>Age: <span>{{whisky.years}}</span></h6></li>
+              <li><h6>Color: <span>{{whisky.color}}</span></h6></li>
+              <li><h6>Target price: <span>€{{whisky.targetprice}}</span></h6></li>
+              <li><h6>Rare?: <span>{{whisky.rare == 0 ? 'No' : 'Yes'}}</span></h6></li>
+            </ul>
+          <div class="whisky-description">
+            <h6>{{whisky.description}}</h6>
+          </div>
+
         </div>
       </div>
     </div>
@@ -34,18 +37,31 @@
     <div class="left-column col-lg-4 col-md-4 col-sm-4 col-xs-4">
       <div class="text-container">
         <h2>Tasting notes</h2>
-        <h6>{{whisky.nose}}</h6>
-        <h6>{{whisky.taste}}</h6>
+        <h6><span>Nose: </span>{{whisky.nose}}</h6>
+        <h6><span>Overall: </span>{{whisky.taste}}</h6>
       </div>
     </div>
     </div>
     <div class="right-column col-lg-8 col-md-8 col-sm-8 col-xs-8 comments-container">
       <div class="formcontainer">
-        <form ng-submit="addcomment(comment)">
-          <input type="text" ng-model="comment.title" placeholder="Title" /><br />
-          <input type="text" ng-model="comment.rating" placeholder="Rating"/><br />
-          <input type="text" ng-model="comment.body" placeholder="Review"/><br />
+        <h4>Tell us what you think of {{whisky.name}}</h4>
+        <form class="form" name="form" ng-submit="addcomment(comment)" novalidate>
+          <input name="title"  type="text" ng-model="comment.title"
+          placeholder="Title" required/>
+          <input name="rating" type="text" ng-model="comment.rating"
+          placeholder="Rating" required/><br />
+          <input name="body" type="text" ng-model="comment.body"
+          placeholder="Review" required/><br />
           <button type="submit">Submit</button>
+
+          <div class="form-group has-error">
+            <p class="help-block" ng-show="form.title.$error.required
+            && form.rating.$error.required && form.body.$error.required && submitted">
+               Please enter your email and password.
+            </p>
+
+            <p class="help-block">{{ errors.other }}</p>
+          </div>
         </form>
       </div>
       <div class="reviews">

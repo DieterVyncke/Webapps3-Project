@@ -1,13 +1,69 @@
-.back-button{
-  margin-left: auto;
-  margin-right: auto;
+.back-button-container{
+  margin-top: 60px;
+  padding-left: 0;
+  padding-right: 0;
+
+  .back-button{
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(75, 21, 5);
+  }
+
+  .back-button:hover{
+    font-weight: bold;
+    text-decoration: none;
+  }
 }
+
+
 
 .whisky-detail-container{
   padding-left: 0;
   padding-right: 0;
   background-color: white;
-  margin-top: 70px;
+  margin-top: 10px;
+  color: rgb(75, 21, 5);
+
+  .text-container{
+    h2{
+      font-family: 'Lobster', cursive;
+      font-size: 35px;
+      span{
+        font-size: 22px;
+        color: rgb(126, 62, 16);
+      }
+    }
+
+    .whisky-specs{
+      margin-top: 20px;
+      padding-left: 0;
+      padding-right: 0;
+
+        list-style-type: none;
+        -moz-column-count: 2;
+        -moz-column-gap: 2.5em;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 2.5em;
+        column-count: 2;
+        column-gap: 2.5em;
+
+      h6{
+        font-weight: bold;
+        font-size: 13px;
+        span{
+          font-weight: normal;
+        }
+      }
+    }
+
+    .whisky-specs li:first-child h6{
+      margin-top: 0;
+    }
+
+    .whisky-description{
+      margin-top: 40px;
+    }
+  }
 
   .image-container {
     text-align: center;
@@ -22,6 +78,7 @@
 }
 
 .detail-container{
+
   .left-column{
     text-align: center;
     padding-bottom: 30px;
@@ -32,4 +89,30 @@
 .whisky-notes-container{
   padding-left: 0;
   padding-right: 0;
+  margin-top: 25px;
+
+  .left-column{
+    padding-left: 0;
+    padding-right: 30px;
+
+    .text-container{
+      background-color: white;
+      border: 1px solid rgb(126, 62, 16);
+      padding: 20px;
+
+      h2{
+        margin: 0;
+        padding: 0;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      h6{
+        font-size: 13px;
+        span{
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }

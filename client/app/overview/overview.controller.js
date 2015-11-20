@@ -8,4 +8,5 @@ angular.module('webapps3Project2App')
       $scope.whiskys = whiskys;
       console.log($scope.whiskys);
     });
+
   });

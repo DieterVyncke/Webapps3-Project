@@ -11,7 +11,8 @@
           </div>
           <div class="text-container">
             <h2><a ui-sref="whiskyDetail({id:whisky._id})">{{whisky.name}}</a></h2>
-            <h3>User rating: 4.3 - (4 ratings)</h3>
+            <h3 ng-show="whisky.rating">User rating: {{whisky.rating}} - ({{whisky.comments.length}}
+              {{whisky.comments.length == 1 ? "rating" : "ratings"}})</h3>
           </div>
         </div>
       </div>

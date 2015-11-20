@@ -6,8 +6,8 @@ var mongoose = require('mongoose'),
 var WhiskySchema = new Schema({
   name: {type: String, index: true},
   color: String,
-  rating: Number,
   targetprice: Number,
+  rating: {type: Number, default: ''},
   rare: Boolean,
   // tags: Array,
   taste: String,
@@ -20,7 +20,6 @@ var WhiskySchema = new Schema({
   years: String,
   //CommentSchema
   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
-  // fk_comments: [CommentSchema],
 });
 
 module.exports = mongoose.model('Whisky', WhiskySchema);
