@@ -9,5 +9,5 @@ module.exports = {
     uri: 'mongodb://localhost/whisky'
   },
 
-  seedDB: true
+  seedDB: false
 };

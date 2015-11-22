@@ -15,8 +15,10 @@
       </div>
       <div class="right-column col-lg-8 col-md-8 col-sm-8 col-xs-8">
         <div class="text-container">
-          <h2 class="title">{{whisky.name}} <span>({{whisky.percentage}}%)</span></h2>
-
+          <div class="whisky-header">
+            <h2 class="title">{{whisky.name}} <span>({{whisky.percentage}}%)</span></h2>
+            <uib-rating class="current-rating" ng-model="whisky.rating" max="5" readonly="true"></uib-rating>
+          </div>
             <ul class="whisky-specs">
               <li><h6>Age: <span>{{whisky.years}}</span></h6></li>
               <li><h6>Color: <span>{{whisky.color}}</span></h6></li>
@@ -26,7 +28,6 @@
           <div class="whisky-description">
             <h6>{{whisky.description}}</h6>
           </div>
-
         </div>
       </div>
     </div>
@@ -46,22 +47,21 @@
       <div class="formcontainer">
         <h4>Tell us what you think of {{whisky.name}}</h4>
         <form class="form" name="form" ng-submit="addcomment(comment)" novalidate>
-          <input name="title"  type="text" ng-model="comment.title"
-          placeholder="Title" required/>
-          <input name="rating" type="text" ng-model="comment.rating"
-          placeholder="Rating" required/><br />
-          <input name="body" type="text" ng-model="comment.body"
-          placeholder="Review" required/><br />
-          <button type="submit">Submit</button>
-
-          <div class="form-group has-error">
-            <p class="help-block" ng-show="form.title.$error.required
-            && form.rating.$error.required && form.body.$error.required && submitted">
-               Please enter your email and password.
-            </p>
-
-            <p class="help-block">{{ errors.other }}</p>
+          <div class="form-group" show-errors>
+            <div class="delete-paddig col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input name="title" type="text" ng-model="comment.title" placeholder="Title" class="form-control
+               " required/>
+               <p class="help-block" ng-if="form.title.$error.required">Title is required</p>
+            </div>
+            <uib-rating class="comment-rating col-lg-4 col-md-4 col-sm-4 col-xs-4" ng-model="comment.rating" max="5"
+              readonly="false" on-leave="overStar = null">
+            </uib-rating>
           </div>
+          <div class="form-group" show-errors>
+            <input name="body" type="text" ng-model="comment.body" placeholder="Review" class="form-control" required/>
+            <p class="help-block" ng-if="form.body.$error.required">Review is required</p>
+          </div>
+          <button type="submit">Submit</button>
         </form>
       </div>
       <div class="reviews">

@@ -25,13 +25,24 @@
   color: rgb(75, 21, 5);
 
   .text-container{
+    .whisky-header{
+      height: 68px;
+    }
+
     h2{
+      display: inline-block;
       font-family: 'Lobster', cursive;
       font-size: 35px;
       span{
         font-size: 22px;
         color: rgb(126, 62, 16);
       }
+    }
+
+    .current-rating{
+      float:right;
+      line-height: 85px;
+      padding-right: 20px;
     }
 
     .whisky-specs{
@@ -114,5 +125,28 @@
         }
       }
     }
+  }
+}
+
+.comments-container{
+
+  .formcontainer{
+    h4{
+      font-family: 'Lobster', cursive;
+      font-size: 22px;
+    }
+  }
+
+  .comment-rating{
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  .form-group .help-block {
+    display: none;
+  }
+
+  .form-group.has-error .help-block {
+    display: block;
   }
 }

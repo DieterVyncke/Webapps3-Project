@@ -40,20 +40,13 @@ exports.addComment = function(req, res){
     // console.log(comment);
     comment.save(function(err, comment){
       whisky.comments.push(comment);
-      // console.log(comment);
-      // console.log(whisky.comments);
+      whisky.ratings.push(comment.rating);
 
-      //calculate new rating
-      //huidige rating ophalen
-      var rating = whisky.rating;
-      console.log('rating' + rating);
-      var index = whisky.comments.length;
-      console.log('length' + index);
-      var commentRating = comment.rating;
-      var newRating = (rating + commentRating) / index;
-      console.log('new Rating' + newRating);
-
-      whisky.rating =  newRating;
+      var sum = 0;
+      for( var i = 0; i < whisky.ratings.length; i++ ){
+          sum += whisky.ratings[i]; //don't forget to add the base
+      }
+      whisky.rating = sum/whisky.ratings.length;
       whisky.save();
         res.json(comment);
     });

@@ -3,30 +3,33 @@
 angular.module('webapps3Project2App')
   .controller('WhiskyDetailController', function ($scope, $http, $stateParams) {
 
-    $scope.errors = {};
     getWhiskyById($stateParams);
 
     $scope.addcomment = function(comment){
-      $scope.submitted = true;
-      if(comment.$valid){
-        addComment($stateParams.id, comment)
+      $scope.$broadcast('show-errors-check-validity');
+      if($scope.form.$valid){
+        if(comment.rating == null){
+          comment.rating = 0;
+        }
+        addComment($stateParams.id, comment);
         $scope.whisky.comments.push(comment);
-        //console.log($scope.whisky);
+        reset(comment);
 
         //reload getWhiskyById - calculate rating
         getWhiskyById($stateParams);
-
-        //empty fields
-        $scope.comment = '';
       }
     };
+
+    function reset(comment) {
+      $scope.$broadcast('show-errors-reset');
+      $scope.comment = '';
+    }
 
     //get whisky from db
     function getWhiskyById($stateParams){
       $http.get('/api/whiskys/' + $stateParams.id).success(function(whisky) {
         $scope.whisky = whisky;
-        // $scope.whisky.rating = calculateRating($scope.whisky);
-        console.log($scope.rating2);
+        $scope.whisky.rating = whisky.rating;
       });
     }
 
