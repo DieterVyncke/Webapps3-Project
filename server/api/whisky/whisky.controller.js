@@ -13,7 +13,6 @@ Whisky.schema.plugin(deepPopulate, {
     },
   }
 });
-// Whisky.register();
 
 // Get list of whiskys
 exports.index = function(req, res) {

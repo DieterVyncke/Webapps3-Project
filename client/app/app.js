@@ -7,6 +7,7 @@ angular.module('webapps3Project2App', [
   'ui.router',
   'ui.bootstrap',
   'ngAnimate',
+  'smart-table',
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

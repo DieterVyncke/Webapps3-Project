@@ -18,5 +18,11 @@ angular.module('webapps3Project2App')
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
         authenticate: true
+      })
+      .state('user-info', {
+        url: '/user-info',
+        templateUrl: 'app/account/userInfo/userInfo.html',
+        controller: 'UserInfoController',
+        authenticate: true
       });
   });

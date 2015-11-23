@@ -118,6 +118,5 @@ Whisky.find({}).remove(function() {
     targetprice: 45.50,
     rare: false,
     releasedate: "2011-10-25",
-  },
-  );
+  });
 });

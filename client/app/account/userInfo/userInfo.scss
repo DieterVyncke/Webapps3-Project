@@ -1,0 +1,51 @@
+.user-detail-container{
+  padding: 13px;
+  background-color: white;
+  width: 35%;
+
+  h6{
+    span{
+      font-weight: bold;
+    }
+  }
+}
+
+.user-message-container{
+  h3{
+    font-family: 'Lobster', cursive;
+    font-size: 21px;
+    color: #4b1505;
+  }
+}
+
+.table-striped{
+  background-color: white;
+  border: 1px solid #7a4012;
+
+  thead{
+    color: #D8D8D8;
+  }
+
+  a{
+    color: black;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+
+}
+
+.table > thead > tr > th{
+  border-bottom: none !important;
+}
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th,
+.table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td{
+  border-top: none !important;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th{
+  background-color: #D8D8D8;
+}

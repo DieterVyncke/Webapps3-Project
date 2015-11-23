@@ -1,0 +1,39 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="small-banner"><img ng-src="../assets/images/small-banner.jpg"/></div>
+
+<div class="container">
+    <div class="header-container">
+      <h1 class="page-header">Hello {{getCurrentUser().name}}!</h1>
+      <!-- Hier moet er nog een component van gemaatk worden -->
+      <div class="user-detail-container">
+          <h6><span>Username:</span> {{getCurrentUser().name}}</h6>
+          <h6><span>Email:</span> {{getCurrentUser().email}}</h6>
+          <h6><span>Number of comments:</span> {{getCurrentUser().comments.length}}</h6>
+          <!-- <h6><span>Number of whiskies:</span> {{getCurrentUser().whisky.length}}</h6> -->
+      </div>
+    </div>
+
+    <div class="user-message-container">
+      <h3>Your messages</h3>
+          <table st-table="getCurrentUser()" class="table table-striped">
+          <thead>
+            <tr>
+              <!-- <th class="">#</th> -->
+              <th>Whisky</th>
+              <th>Title</th>
+              <th>Review</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="comment in getCurrentUser().comments">
+              <!-- <td>{{comment.count}}</td> -->
+              <td><a ui-sref="whiskyDetail({id:comment.whisky._id})">{{comment.whisky.name}}</a></td>
+              <td>{{comment.title}}</td>
+              <td>{{comment.body}}</td>
+              <td>{{comment.rating}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
