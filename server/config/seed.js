@@ -11,28 +11,6 @@ var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Whisky = require('../api/whisky/whisky.model');
 
-Thing.find({}).remove(function() {
-  Thing.create({
-    name : 'Development Tools',
-    info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
-  }, {
-    name : 'Server and Client integration',
-    info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
-  }, {
-    name : 'Smart Build System',
-    info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
-  },  {
-    name : 'Modular Structure',
-    info : 'Best practice client and server structures allow for more code reusability and maximum scalability'
-  },  {
-    name : 'Optimized Build',
-    info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
-  },{
-    name : 'Deployment Ready',
-    info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
-  });
-});
-
 User.find({}).remove(function() {
   User.create({
     provider: 'local',
@@ -55,78 +33,89 @@ var ardbegImg = 'server/assets/images/ardbeg.jpg';
 var macallanImg = 'server/assets/images/macallan.jpg';
 var obanImg = 'server/assets/images/oban.jpg';
 
+
 Whisky.find({}).remove(function() {
   Whisky.create({
-    name: 'Ardbeg Ten',
+    name: 'The Macallan 12 Year Old Sherry Oak',
     color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
-    region: 'Islay',
-    image: 'assets/images/ardbeg.jpg',
-    percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
-    years: '10',
-    nose: 'Lekker hoor'
-  },{
-    name: 'Ardbeg Ten',
-    color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
+    taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
+    nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
     region: 'Islay',
     image: 'assets/images/macallan.jpg',
     percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
+    description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
     years: '10',
-    nose: 'Lekker hoor'
-  },{
-    name: 'Ardbeg Ten',
+    targetprice: 45.50,
+    rare: false,
+    releasedate: "2015-09-20",
+  },
+  {
+    name: 'Balvenie 21 Year Old PortWood Finish',
     color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
+    taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
+    nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
     region: 'Islay',
-    image: 'assets/images/oban.jpg',
+    image: 'assets/images/balvenie-21y.jpg',
     percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
+    description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
     years: '10',
-    nose: 'Lekker hoor'
-  },{
-    name: 'Ardbeg Ten',
+    targetprice: 45.50,
+    rare: false,
+    releasedate: "2014-09-25",
+  },
+  {
+    name: 'Oban 14 Year Old',
     color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
+    taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
+    nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
+    region: 'Islay',
+    image: 'assets/images/balvenie-21y.jpg',
+    percentage: '40',
+    description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
+    years: '10',
+    targetprice: 45.50,
+    rare: false,
+    releasedate: "2012-01-25",
+  },
+  {
+    name: 'Balvenie 21 Year Old PortWood Finish',
+    color: 'Gold',
+    taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
+    nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
     region: 'Islay',
     image: 'assets/images/macallan.jpg',
     percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
+    description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
     years: '10',
-    nose: 'Lekker hoor'
-  },{
+    targetprice: 45.50,
+    rare: false,
+    releasedate: "2014-09-25",
+  },
+  {
+    name: 'BenRiach 16 Year Old',
+    color: 'Gold',
+    taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
+    nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
+    region: 'Islay',
+    image: 'assets/images/macallan.jpg',
+    percentage: '40',
+    description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
+    years: '10',
+    targetprice: 45.50,
+    rare: false,
+    releasedate: "2011-10-25",
+  },
+  {
     name: 'Ardbeg Ten',
     color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
+    taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
+    nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
     region: 'Islay',
     image: 'assets/images/ardbeg.jpg',
     percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
+    description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
     years: '10',
-    nose: 'Lekker hoor'
-  },{
-    name: 'Ardbeg Ten',
-    color: 'Gold',
-    rating: 3.0,
-    tags: ['Islay', 'Peak'],
-    taste: 'Vreed lekker',
-    region: 'Islay',
-    image: 'assets/images/oban.jpg',
-    percentage: '40',
-    description: 'dit is een beschrijving voor whisky 1',
-    years: '10',
-    nose: 'Lekker hoor'
+    targetprice: 45.50,
+    rare: false,
   });
 });

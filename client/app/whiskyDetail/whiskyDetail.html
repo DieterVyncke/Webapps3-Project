@@ -1,27 +1,87 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+<div class="small-banner"><img ng-src="../assets/images/small-banner.jpg"/></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-  </div>
-</header>
+<div class="container back-button-container">
+  <a class="back-button" href="/overview"><< Back</a>
+</div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Whisky:</h1>
-        <p>{{whisky.description}}</p>
+<div class="container whisky-detail-container">
+  <div class="whisky-detail">
+    <div class="detail-container">
+      <div class="left-column col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="image-container">
+          <img ng-src="{{whisky.image}}"/>
+        </div>
+      </div>
+      <div class="right-column col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <div class="text-container">
+          <div class="whisky-header">
+            <h2 class="title">{{whisky.name}} <span>({{whisky.percentage}}%)</span></h2>
+            <uib-rating class="current-rating" ng-model="whisky.rating" max="5" readonly="true"></uib-rating>
+          </div>
+            <ul class="whisky-specs">
+              <li><h6>Age: <span>{{whisky.years}}</span></h6></li>
+              <li><h6>Color: <span>{{whisky.color}}</span></h6></li>
+              <li><h6>Target price: <span>€{{whisky.targetprice}}</span></h6></li>
+              <li><h6>Rare?: <span>{{whisky.rare == 0 ? 'No' : 'Yes'}}</span></h6></li>
+            </ul>
+          <div class="whisky-description">
+            <h6>{{whisky.description}}</h6>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<footer class="footer">
-  <div class="container">
-      <p>Angular Fullstack v2.1.1 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
-  </div>
-</footer>
+<div class="container whisky-notes-container">
+  <div class="notes-container">
+    <div class="left-column col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      <div class="text-container">
+        <h2>Tasting notes</h2>
+        <h6><span>Nose: </span>{{whisky.nose}}</h6>
+        <h6><span>Overall: </span>{{whisky.taste}}</h6>
+      </div>
+    </div>
+    </div>
+    <div class="right-column col-lg-8 col-md-8 col-sm-8 col-xs-8 comments-container">
+      <div class="hide-container" ng-hide="isLoggedIn()">
+        <h4 class="subtitle-h4">Not logged in yet!?</h4>
+        <p>If you want to write your own review about {{whisky.name}},</p>
+        <p>please <a href="/signup">sign up</a> or <a href="/login">log in</a></p>
+      </div>
+      <div ng-hide="!isLoggedIn()" class="formcontainer">
+        <h4 class="subtitle-h4">Tell us what you think of {{whisky.name}}</h4>
+        <form class="form" name="form" ng-submit="addcomment(comment)" novalidate>
+          <div class="form-group" show-errors>
+            <div class="form-title-container delete-padding col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input name="title" type="text" ng-model="comment.title" placeholder="Title" class="form-control
+               " required/>
+               <p class="help-block" ng-if="form.title.$error.required">Title is required</p>
+            </div>
+            <uib-rating class="comment-rating col-lg-4 col-md-4 col-sm-4 col-xs-4" ng-model="comment.rating" max="5"
+              readonly="false" on-leave="overStar = null">
+            </uib-rating>
+          </div>
+          <div class="form-review-container form-group" show-errors>
+            <textarea name="body" type="text" ng-model="comment.body" placeholder="Review" class="form-control" required/>
+            <p class="help-block" ng-if="form.body.$error.required">Review is required</p>
+          </div>
+          <div class="submit-button">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="reviews">
+        <h4 class="subtitle-h4">User Reviews</h4>
+        <div class="review-container" ng-repeat="review in whisky.comments">
+          <div class="innter-content">
+            <h6>{{review.title}}  <span><uib-rating class="current-rating" ng-model="review.rating" max="5" readonly="true"></uib-rating></span></h6>
+            <p>{{review.body}}</p>
+            <h5>Posted by: {{review.user.name}}</h5>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,240 @@
+.back-button-container{
+  margin-top: 60px;
+  padding-left: 0;
+  padding-right: 0;
+
+  .back-button{
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(75, 21, 5);
+  }
+
+  .back-button:hover{
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+.subtitle-h4{
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #481706;
+}
+
+
+.whisky-detail-container{
+  padding-left: 0;
+  padding-right: 0;
+  background-color: white;
+  margin-top: 10px;
+  color: rgb(75, 21, 5);
+
+  .text-container{
+    .whisky-header{
+      height: 68px;
+    }
+
+    h2{
+      display: inline-block;
+      font-family: 'Lobster', cursive;
+      font-size: 35px;
+      span{
+        font-size: 22px;
+        color: rgb(126, 62, 16);
+      }
+    }
+
+    .current-rating{
+      float:right;
+      line-height: 85px;
+      padding-right: 20px;
+    }
+
+    .whisky-specs{
+      margin-top: 20px;
+      padding-left: 0;
+      padding-right: 0;
+
+        list-style-type: none;
+        -moz-column-count: 2;
+        -moz-column-gap: 2.5em;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 2.5em;
+        column-count: 2;
+        column-gap: 2.5em;
+
+      h6{
+        font-weight: bold;
+        font-size: 13px;
+        span{
+          font-weight: normal;
+        }
+      }
+    }
+
+    .whisky-specs li:first-child h6{
+      margin-top: 0;
+    }
+
+    .whisky-description{
+      margin-top: 40px;
+    }
+  }
+
+  .image-container {
+    text-align: center;
+
+    img{
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: 310px;
+    }
+  }
+}
+
+.detail-container{
+
+  .left-column{
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+}
+
+.whisky-notes-container{
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 25px;
+
+  .left-column{
+    padding-left: 0;
+    padding-right: 30px;
+
+    .text-container{
+      background-color: white;
+      border: 1px solid rgb(126, 62, 16);
+      padding: 20px;
+
+      h2{
+        margin: 0;
+        padding: 0;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      h6{
+        font-size: 13px;
+        span{
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.comments-container{
+  margin-bottom: 13px;
+
+  .formcontainer{
+
+    .form-title-container{
+      margin-bottom: 10px;
+    }
+
+    .form-review-container{
+      margin-bottom: 10px;
+      textarea{
+        height: 140px;
+        width: 100%;
+        resize: none;
+      }
+    }
+
+    .form-group .help-block {
+      display: none;
+    }
+
+    .form-group.has-error .help-block {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .submit-button{
+        height: 36px;
+      button{
+        float: right;
+        height: 100%;
+        line-height: 36px;
+        width: 145px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background-color: #D8D8D8;
+        border: 1px solid #979797;
+
+        background: #d8d8d8; /* Old browsers */
+        background: -moz-linear-gradient(top,  #d8d8d8 0%, #C7C7C7 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #d8d8d8 0%,#C7C7C7 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #d8d8d8 0%,#C7C7C7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', endColorstr='#b3b3b3',GradientType=0 ); /* IE6-9 */
+      }
+
+      button:hover{
+        background: #d8d8d8;
+      }
+    }
+  }
+
+  .comment-rating{
+    text-align: right;
+    padding-right: 20px;
+    height: 35px;
+    line-height: 35px;
+  }
+
+  .review-container{
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    .innter-content{
+      padding-left: 30px;
+
+      h6{
+        color: #481706;
+        font-weight: bold;
+        font-size: 15px;
+        span{
+          margin-left: 20px;
+        }
+      }
+
+      h5{
+        font-size: 11px;
+        margin-top: 25px;
+        color: #666564;
+      }
+    }
+  }
+
+  //if hidden
+  .hide-container{
+    margin-bottom: 70px;
+
+    a{
+      text-decoration: none;
+      font-weight: bold;
+      color: #333333;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+
+    p{
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+}
