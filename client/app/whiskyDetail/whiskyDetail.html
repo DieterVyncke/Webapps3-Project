@@ -44,11 +44,16 @@
     </div>
     </div>
     <div class="right-column col-lg-8 col-md-8 col-sm-8 col-xs-8 comments-container">
-      <div class="formcontainer">
-        <h4>Tell us what you think of {{whisky.name}}</h4>
+      <div class="hide-container" ng-hide="isLoggedIn()">
+        <h4 class="subtitle-h4">Not logged in yet!?</h4>
+        <p>If you want to write your own review about {{whisky.name}},</p>
+        <p>please <a href="/signup">sign up</a> or <a href="/login">log in</a></p>
+      </div>
+      <div ng-hide="!isLoggedIn()" class="formcontainer">
+        <h4 class="subtitle-h4">Tell us what you think of {{whisky.name}}</h4>
         <form class="form" name="form" ng-submit="addcomment(comment)" novalidate>
           <div class="form-group" show-errors>
-            <div class="delete-paddig col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <div class="form-title-container delete-padding col-lg-8 col-md-8 col-sm-8 col-xs-8">
               <input name="title" type="text" ng-model="comment.title" placeholder="Title" class="form-control
                " required/>
                <p class="help-block" ng-if="form.title.$error.required">Title is required</p>
@@ -57,18 +62,24 @@
               readonly="false" on-leave="overStar = null">
             </uib-rating>
           </div>
-          <div class="form-group" show-errors>
-            <input name="body" type="text" ng-model="comment.body" placeholder="Review" class="form-control" required/>
+          <div class="form-review-container form-group" show-errors>
+            <textarea name="body" type="text" ng-model="comment.body" placeholder="Review" class="form-control" required/>
             <p class="help-block" ng-if="form.body.$error.required">Review is required</p>
           </div>
-          <button type="submit">Submit</button>
+          <div class="submit-button">
+            <button type="submit">Submit</button>
+          </div>
         </form>
       </div>
       <div class="reviews">
-        <div ng-repeat="review in whisky.comments">
-          {{review.title}}<br/>
-          {{review.rating}}<br/>
-          {{review.body}}
+        <h4 class="subtitle-h4">User Reviews</h4>
+        <div class="review-container" ng-repeat="review in whisky.comments">
+          <div class="innter-content">
+            <h6>{{review.title}}  <span><uib-rating class="current-rating" ng-model="review.rating" max="5" readonly="true"></uib-rating></span></h6>
+            <p>{{review.body}}</p>
+            <h5>Posted by: {{review.user.name}}</h5>
+          </div>
+          <hr>
         </div>
       </div>
     </div>

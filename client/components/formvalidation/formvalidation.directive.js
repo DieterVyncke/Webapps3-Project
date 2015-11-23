@@ -7,7 +7,7 @@ angular.module('webapps3Project2App')
       require: '^form',
       link: function (scope, el, attrs, formCtrl) {
         // find the text box element, which has the 'name' attribute
-        var inputEl   = el[0].querySelector("[name]");
+        var inputEl   = el[0].querySelector('[name]');
         // convert the native text box element to an angular element
         var inputNgEl = angular.element(inputEl);
         // get the name on the text box
@@ -21,11 +21,11 @@ angular.module('webapps3Project2App')
         });
 
         scope.$watch(function() {
-          return formCtrl[inputName].$invalid
+          return formCtrl[inputName].$invalid;
         }, function(invalid) {
           // we only want to toggle the has-error class after the blur
           // event or if the control becomes valid
-          if (!blurred && invalid) { return }
+          if (!blurred && invalid) { return; }
           el.toggleClass('has-error', invalid);
         });
 
@@ -39,5 +39,5 @@ angular.module('webapps3Project2App')
           }, 0, false);
         });
       }
-  }
+  };
 });

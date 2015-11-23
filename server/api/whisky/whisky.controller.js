@@ -3,6 +3,17 @@
 var _ = require('lodash');
 var Whisky = require('./whisky.model');
 var Comment = require('./comment.model');
+var User = require('../user/user.model');
+var mongoose = require('mongoose');
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
+Whisky.schema.plugin(deepPopulate, {
+  populate: {
+    'comments.user': {
+      select: 'name',
+    },
+  }
+});
+// Whisky.register();
 
 // Get list of whiskys
 exports.index = function(req, res) {
@@ -14,12 +25,11 @@ exports.index = function(req, res) {
 
 // Get a single whisky
 exports.show = function(req, res) {
-  Whisky.findById(req.params.id, function (err, whisky) {
+  Whisky.findById(req.params.id).deepPopulate('comments.user').exec(function(err, whisky){
     if(err) { return handleError(res, err); }
     if(!whisky) { return res.status(404).send('Not Found'); }
-    // console.log(whisky.comments);
         return res.json(whisky);
-  }).populate('comments');
+  });
 };
 
 // Creates a new whisky in the DB.
@@ -37,19 +47,29 @@ exports.addComment = function(req, res){
     if(!whisky) { return res.status(404).send('Whisky not found'); }
 
     var comment = new Comment(req.body);
-    // console.log(comment);
-    comment.save(function(err, comment){
-      whisky.comments.push(comment);
-      whisky.ratings.push(comment.rating);
 
-      var sum = 0;
-      for( var i = 0; i < whisky.ratings.length; i++ ){
-          sum += whisky.ratings[i]; //don't forget to add the base
-      }
-      whisky.rating = sum/whisky.ratings.length;
-      whisky.save();
-        res.json(comment);
+    //get current user and push comment
+    User.findById(comment.user, function (err, user) {
+      if (err) return next(err);
+      if (!user) return res.status(401).send('Unauthorized');
+      user.comments.push(comment);
+      user.save();
     });
+
+      comment.save(function(err, comment){
+        console.log(comment);
+        whisky.comments.push(comment);
+        whisky.ratings.push(comment.rating);
+
+        var sum = 0;
+        for( var i = 0; i < whisky.ratings.length; i++ ){
+            sum += whisky.ratings[i];
+        }
+        whisky.rating = sum/whisky.ratings.length;
+        whisky.save();
+          res.json(comment);
+      });
+
   });
 };
 
