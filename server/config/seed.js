@@ -35,7 +35,21 @@ var obanImg = 'server/assets/images/oban.jpg';
 
 
 Whisky.find({}).remove(function() {
-  Whisky.create({
+  Whisky.create(
+    {
+      name: 'Ardbeg Ten',
+      color: 'Gold',
+      taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
+      nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
+      region: 'Islay',
+      image: 'assets/images/ardbeg.jpg',
+      percentage: '40',
+      description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
+      years: '10',
+      targetprice: 45.50,
+      rare: false,
+    }
+    ,{
     name: 'The Macallan 12 Year Old Sherry Oak',
     color: 'Gold',
     taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
@@ -105,17 +119,5 @@ Whisky.find({}).remove(function() {
     rare: false,
     releasedate: "2011-10-25",
   },
-  {
-    name: 'Ardbeg Ten',
-    color: 'Gold',
-    taste: 'Precise balance, big smoke and non-chill filtered. This is why this is such a famous dram.',
-    nose: 'A ridge of vanilla leads to mountain of peat capped with citrus fruits and circled by clouds of sea spray.',
-    region: 'Islay',
-    image: 'assets/images/ardbeg.jpg',
-    percentage: '40',
-    description: 'Jim Murrays 2008 World Whisky of the Year! When Ardbeg 10 was released it was the first expression from the distillery not to be chill-filtered. Its a true classic from Islay, and a must have for any fan of single malt whisky.',
-    years: '10',
-    targetprice: 45.50,
-    rare: false,
-  });
+  );
 });
