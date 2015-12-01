@@ -1,13 +1,16 @@
 'use strict';
 
 angular.module('webapps3Project2App')
-  .controller('UserInfoController', function ($scope, User, Auth) {
+  .controller('UserInfoController', function ($scope, User, Auth, $http) {
 
     //check for login
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
-
+    $scope.deleteWhisky = function(whisky){
+      return $http.put('/api/whiskys/' + whisky._id , whisky);
+      $scope.getCurrentUser.whiskies.remove(whisky);
+    }
 
     // $scope.errors = {};
     //

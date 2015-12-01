@@ -9,7 +9,7 @@
           <h6><span>Username:</span> {{getCurrentUser().name}}</h6>
           <h6><span>Email:</span> {{getCurrentUser().email}}</h6>
           <h6><span>Number of comments:</span> {{getCurrentUser().comments.length}}</h6>
-          <!-- <h6><span>Number of whiskies:</span> {{getCurrentUser().whisky.length}}</h6> -->
+          <h6><span>Number of whiskies:</span> {{getCurrentUser().whiskies.length}}</h6>
       </div>
     </div>
 
@@ -36,4 +36,26 @@
           </tbody>
         </table>
     </div>
+    <div class="user-whiskies-container">
+      <h3>Your whiskies</h3>
+          <table st-table="getCurrentUser()" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="whisky in getCurrentUser().whiskies">
+              <td><a ui-sref="whiskyDetail({id:comment.whisky._id})">{{whisky.name}}</a></td>
+              <td>{{whisky.targetprice}}</td>
+              <td>{{whisky.rating}}</td>
+              <th><a href="">edit</a></th>
+              <th><a ng-click="deleteWhisky(whisky)" class="glyphicon glyphicon-trash"></a></th>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <a ui-sref="add-whisky">Voeg een whisky toe</a>
 </div>

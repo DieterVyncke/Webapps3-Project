@@ -24,5 +24,11 @@ angular.module('webapps3Project2App')
         templateUrl: 'app/account/userInfo/userInfo.html',
         controller: 'UserInfoController',
         authenticate: true
+      })
+      .state('add-whisky', {
+        url: '/add-whisky',
+        templateUrl: 'app/account/crud-whisky/add-whisky.html',
+        controller: 'AddWhiksyCtrl',
+        authenticate: true
       });
   });

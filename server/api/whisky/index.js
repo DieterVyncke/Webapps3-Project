@@ -12,6 +12,7 @@ router.post('/', controller.create);
 router.get('/:id', controller.show);
 // router.put('/:id', controller.put);
 router.post('/:id/comments', controller.addComment);
+router.put('/:id', controller.destroy);
 
 
 module.exports = router;

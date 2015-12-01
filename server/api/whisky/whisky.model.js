@@ -20,7 +20,8 @@ var WhiskySchema = new Schema({
   years: String,
   //CommentSchema
   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
-  ratings: [{type: Number}]
+  ratings: [{type: Number}],
+  user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Whisky', WhiskySchema);

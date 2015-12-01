@@ -3,3 +3,50 @@
 
 $btnText:                           #fff;
 $btnTextAlt:                        #000;
+
+
+.auth-form{
+  text-align: center;
+  width: 100%;
+
+  .form-group {
+    text-align: center;
+    input{
+      max-width:  400px;
+      display: inline-block;
+    }
+  }
+}
+
+.submit-button{
+    font-size: 14px;
+    height: 36px;
+
+    button{
+      height: 100%;
+      line-height: 36px;
+      width: 145px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+      background-color: #D8D8D8;
+      border: 1px solid #979797;
+
+      background: #d8d8d8; /* Old browsers */
+      background: -moz-linear-gradient(top,  #d8d8d8 0%, #C7C7C7 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #d8d8d8 0%,#C7C7C7 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #d8d8d8 0%,#C7C7C7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', endColorstr='#b3b3b3',GradientType=0 ); /* IE6-9 */
+
+      padding: 0;
+    }
+
+    button:hover{
+      background: #d8d8d8;
+    }
+
+    a{
+      color: #333333;
+      margin-left: 30px;
+    }
+}

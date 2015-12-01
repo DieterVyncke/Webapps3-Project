@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('webapps3Project2App')
-  .controller('WhiskyDetailController', function ($scope, $http, $stateParams, Auth) {
+  .controller('WhiskyDetailController', function ($scope, $http, $stateParams, Auth, $window) {
 
     //check for login
     $scope.isLoggedIn = Auth.isLoggedIn;

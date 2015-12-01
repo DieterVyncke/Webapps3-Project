@@ -35,7 +35,39 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Whisky.create(req.body, function(err, whisky) {
     if(err) { return handleError(res, err); }
-    return res.status(201).json(whisky);
+
+    User.findById(whisky.user, function (err, user) {
+      if (err) return next(err);
+      if (!user) return res.status(401).send('Unauthorized');
+
+      user.whiskies.push(whisky);
+      user.save();
+
+      whisky.user = user;
+      whisky.save();
+        return res.status(201).json(whisky);
+    });
+  });
+};
+
+// Deletes a whisky from the DB.
+exports.destroy = function(req, res) {
+  console.log(req.body);
+  Whisky.findById(req.params.id, function (err, whisky) {
+    if(err) { return handleError(res, err); }
+    if(!whisky) { return res.status(404).send('Not Found'); }
+
+    User.findById(whisky.user, function (err, user) {
+      if (err) return next(err);
+      if (!user) return res.status(401).send('Unauthorized');
+      user.whiskies.remove(whisky);
+      user.save();
+    });
+
+    whisky.remove(function(err) {
+      if(err) { return handleError(res, err); }
+      return res.status(204).send('No Content');
+    });
   });
 };
 
