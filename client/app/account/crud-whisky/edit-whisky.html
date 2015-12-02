@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="page-header">Edit Whisky</h1>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="editSubmit(newWhisky)" novalidate>
+        <div class="form-group" show-errors>
+          <div class="form-title-container delete-padding col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <input name="title" type="text" ng-model="newWhisky.name" placeholder="Title" class="form-control
+             " required/>
+             <p class="help-block" ng-if="form.title.$error.required">Title is required</p>
+          </div>
+        </div>
+        <div class="form-review-container form-group" show-errors>
+          <textarea name="body" type="text" ng-model="newWhisky.taste" placeholder="Review" class="form-control" required/>
+          <p class="help-block" ng-if="form.body.$error.required">Review is required</p>
+        </div>
+        <div class="submit-button">
+          <button type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

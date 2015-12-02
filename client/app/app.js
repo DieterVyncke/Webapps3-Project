@@ -17,6 +17,20 @@ angular.module('webapps3Project2App', [
     $httpProvider.interceptors.push('authInterceptor');
   })
 
+  //fore reload page
+  .config(function($provide) {
+    $provide.decorator('$state', function($delegate, $stateParams) {
+        $delegate.forceReload = function() {
+            return $delegate.go($delegate.current, $stateParams, {
+                reload: true,
+                inherit: false,
+                notify: true
+            });
+        };
+        return $delegate;
+    });
+  })
+
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
       // Add authorization token to headers

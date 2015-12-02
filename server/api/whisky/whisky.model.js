@@ -13,7 +13,7 @@ var WhiskySchema = new Schema({
   taste: String,
   nose: String,
   region: String,
-  image: String,
+  image: {type: String, default: 'assets/images/no-image.png'},
   releasedate: { type: Date, default: Date.now },
   percentage: String,
   description: String,

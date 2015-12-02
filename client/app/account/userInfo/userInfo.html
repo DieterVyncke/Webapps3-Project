@@ -14,7 +14,7 @@
     </div>
 
     <div class="user-message-container">
-      <h3>Your messages</h3>
+      <h3>Your Reviews</h3>
           <table st-table="getCurrentUser()" class="table table-striped">
           <thead>
             <tr>
@@ -47,15 +47,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="whisky in getCurrentUser().whiskies">
+            <tr ng-repeat="whisky in userWhiskys">
               <td><a ui-sref="whiskyDetail({id:comment.whisky._id})">{{whisky.name}}</a></td>
               <td>{{whisky.targetprice}}</td>
               <td>{{whisky.rating}}</td>
-              <th><a href="">edit</a></th>
+              <!-- <th><a ui-sref="edit-whisky({id:whisky._id})">edit</a></th> -->
+              <th><a ng-click="editWhisky(whisky)">edit</a></th>
               <th><a ng-click="deleteWhisky(whisky)" class="glyphicon glyphicon-trash"></a></th>
             </tr>
           </tbody>
         </table>
     </div>
-    <a ui-sref="add-whisky">Voeg een whisky toe</a>
+    <!-- <a ui-sref="add-whisky">Voeg een whisky toe</a> -->
+    <!--add whiskyform -->
+    <div ng-if="showAdd" ng-include="'/app/account/crud-whisky/add-whisky.html'"></div>
+    <div ng-if="!showAdd" ng-include="'/app/account/crud-whisky/edit-whisky.html'"></div>
 </div>

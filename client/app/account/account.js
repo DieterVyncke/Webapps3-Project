@@ -28,7 +28,13 @@ angular.module('webapps3Project2App')
       .state('add-whisky', {
         url: '/add-whisky',
         templateUrl: 'app/account/crud-whisky/add-whisky.html',
-        controller: 'AddWhiksyCtrl',
+        controller: 'UserInfoController',
+        authenticate: true
+      })
+      .state('edit-whisky', {
+        url: '/edit-whisky/:id',
+        templateUrl: 'app/account/crud-whisky/edit-whisky.html',
+        controller: 'UserInfoController',
         authenticate: true
       });
   });
