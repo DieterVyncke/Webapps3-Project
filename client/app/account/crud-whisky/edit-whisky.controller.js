@@ -25,6 +25,12 @@ angular.module('webapps3Project2App')
       }
     };
 
+    $scope.cancel = function(){
+      $state.transitionTo('user-info', $state.$current.params, {
+        reload: true, inherit: true, notify: true
+      });
+    }
+
     function editWhisky(whisky, $state){
       //console.log(whisky);
       console.log(whisky._id);

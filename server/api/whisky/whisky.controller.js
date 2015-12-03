@@ -57,6 +57,8 @@ exports.destroy = function(req, res) {
     if(err) { return handleError(res, err); }
     if(!whisky) { return res.status(404).send('Not Found'); }
 
+    console.log(whisky);
+
     User.findById(whisky.user, function (err, user) {
       if (err) return next(err);
       if (!user) return res.status(401).send('Unauthorized');

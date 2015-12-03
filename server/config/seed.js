@@ -7,7 +7,6 @@
 
 var fs = require('fs');
 
-var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Whisky = require('../api/whisky/whisky.model');
 

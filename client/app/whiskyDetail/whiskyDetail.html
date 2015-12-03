@@ -34,8 +34,8 @@
   </div>
 </div>
 <div class="container whisky-notes-container">
-  <div class="notes-container">
-    <div class="left-column col-lg-4 col-md-4 col-sm-4 col-xs-4">
+  <div class="notes-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <div class="left-column ">
       <div class="text-container">
         <h2>Tasting notes</h2>
         <h6><span>Nose: </span>{{whisky.nose}}</h6>
@@ -43,7 +43,7 @@
       </div>
     </div>
     </div>
-    <div class="right-column col-lg-8 col-md-8 col-sm-8 col-xs-8 comments-container">
+    <div class="right-column col-lg-8 col-md-8 col-sm-8 col-xs-12 comments-container">
       <div class="hide-container" ng-hide="isLoggedIn()">
         <h4 class="subtitle-h4">Not logged in yet!?</h4>
         <p>If you want to write your own review about {{whisky.name}},</p>
@@ -53,7 +53,7 @@
         <h4 class="subtitle-h4">Tell us what you think of {{whisky.name}}</h4>
         <form class="form" name="form" ng-submit="addcomment(comment)" novalidate>
           <div class="form-group" show-errors>
-            <div class="form-title-container delete-padding col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <div class="form-title-container delete-padding col-lg-8 col-md-8 col-sm-8 col-xs-12">
               <input name="title" type="text" ng-model="comment.title" placeholder="Title" class="form-control
                " required/>
                <p class="help-block" ng-if="form.title.$error.required">Title is required</p>

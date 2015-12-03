@@ -1,3 +1,5 @@
+$screen-sm-min: 450px;
+
 @mixin centerer {
   position: absolute;
   top: 50%;
@@ -17,7 +19,6 @@
 
   .vertical-header-center{
     height: 80px;
-    display: flex;
     align-items: center;
 
     a{
@@ -43,12 +44,20 @@
 
   .navbar-nav{
     margin-left: 45px;
+
+    @media screen and (max-width: $screen-sm-min) {
+      margin-left: 30px;
+    }
   }
 
   .navbar-nav li{
     width: 150px;
     text-align: center;
     font-size: 16px;
+
+    @media screen and (max-width: $screen-sm-min) {
+      width: 100px;
+    }
 
     a{
       padding-top: 5px;
@@ -93,4 +102,14 @@
 
 .navbar-static-top{
   border-width: 0;
+}
+
+.float-right-nav{
+  li{
+    width: 100px !important;
+    a{
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+  }
 }
