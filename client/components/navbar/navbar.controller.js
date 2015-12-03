@@ -8,12 +8,11 @@ angular.module('webapps3Project2App')
       'link': '/'
       },
       {
-      'title': 'Whiskys',
+      'title': 'Whiskies',
       'link': '/overview'
       },
     ];
 
-    // $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;

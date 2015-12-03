@@ -9,7 +9,6 @@ var WhiskySchema = new Schema({
   targetprice: Number,
   rating: {type: Number, default: ''},
   rare: Boolean,
-  // tags: Array,
   taste: String,
   nose: String,
   region: String,
@@ -18,7 +17,6 @@ var WhiskySchema = new Schema({
   percentage: String,
   description: String,
   years: String,
-  //CommentSchema
   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
   ratings: [{type: Number}],
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}

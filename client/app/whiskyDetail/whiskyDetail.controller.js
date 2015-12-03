@@ -7,14 +7,6 @@ angular.module('webapps3Project2App')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
-    //get whisky from db
-    function getWhiskyById($stateParams){
-      $http.get('/api/whiskys/' + $stateParams.id).success(function(whisky) {
-        $scope.whisky = whisky;
-        $scope.whisky.rating = whisky.rating;
-      });
-    }
-
     getWhiskyById($stateParams);
 
     $scope.addcomment = function(comment){
@@ -37,6 +29,13 @@ angular.module('webapps3Project2App')
       $scope.comment = '';
     }
 
+    //get whisky from db
+    function getWhiskyById($stateParams){
+      $http.get('/api/whiskys/' + $stateParams.id).success(function(whisky) {
+        $scope.whisky = whisky;
+        $scope.whisky.rating = whisky.rating;
+      });
+    }
 
     //add Comment and sent to db
     function addComment(id, comment){
