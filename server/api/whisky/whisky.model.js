@@ -2,7 +2,6 @@
 
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
-var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 var WhiskySchema = new Schema({
   name: {type: String, index: true},
@@ -14,22 +13,15 @@ var WhiskySchema = new Schema({
   taste: String,
   nose: String,
   region: String,
-  image: String,
+  image: {type: String, default: 'assets/images/no-image.png'},
   releasedate: { type: Date, default: Date.now },
   percentage: String,
   description: String,
   years: String,
   //CommentSchema
   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
-  ratings: [{type: Number}]
-});
-
-WhiskySchema.plugin(deepPopulate, {
-  populate: {
-    'comments.user': {
-      select: 'name',
-    },
-  }
+  ratings: [{type: Number}],
+  user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Whisky', WhiskySchema);

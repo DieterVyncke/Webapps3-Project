@@ -1,0 +1,65 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="small-banner"><img ng-src="../assets/images/small-banner.jpg"/></div>
+
+<div class="container">
+    <div class="header-container">
+      <h1 class="page-header">Hello {{getCurrentUser().name}}!</h1>
+      <!-- Hier moet er nog een component van gemaatk worden -->
+      <div class="user-detail-container">
+          <h6><span>Username:</span> {{getCurrentUser().name}}</h6>
+          <h6><span>Email:</span> {{getCurrentUser().email}}</h6>
+          <h6><span>Number of comments:</span> {{getCurrentUser().comments.length}}</h6>
+          <h6><span>Number of whiskies:</span> {{getCurrentUser().whiskies.length}}</h6>
+      </div>
+    </div>
+
+    <div class="user-message-container">
+      <h3>Your Reviews</h3>
+          <table st-table="getCurrentUser()" class="table table-striped">
+          <thead>
+            <tr>
+              <!-- <th class="">#</th> -->
+              <th>Whisky</th>
+              <th>Title</th>
+              <th>Review</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="comment in getCurrentUser().comments">
+              <!-- <td>{{comment.count}}</td> -->
+              <td><a ui-sref="whiskyDetail({id:comment.whisky._id})">{{comment.whisky.name}}</a></td>
+              <td>{{comment.title}}</td>
+              <td>{{comment.body}}</td>
+              <td>{{comment.rating}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="user-whiskies-container">
+      <h3>Your whiskies</h3>
+          <table st-table="getCurrentUser()" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="whisky in userWhiskys">
+              <td><a ui-sref="whiskyDetail({id:whisky._id})">{{whisky.name}}</a></td>
+              <td>{{whisky.targetprice}}</td>
+              <td>{{whisky.rating}}</td>
+              <!-- <th><a ui-sref="edit-whisky({id:whisky._id})">edit</a></th> -->
+              <th><a ng-click="editWhisky(whisky)">edit</a></th>
+              <th><a ng-click="deleteWhisky(whisky)" class="glyphicon glyphicon-trash"></a></th>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <!-- <a ui-sref="add-whisky">Voeg een whisky toe</a> -->
+    <!--add whiskyform -->
+    <div ng-if="showAdd" ng-include="'/app/account/crud-whisky/add-whisky.html'"></div>
+    <div ng-if="!showAdd" ng-include="'/app/account/crud-whisky/edit-whisky.html'"></div>
+</div>

@@ -20,12 +20,12 @@ angular.module('webapps3Project2App')
     $scope.addcomment = function(comment){
       $scope.$broadcast('show-errors-check-validity');
       if($scope.form.$valid){
-        if(comment.rating === null){
+        if(comment.rating === undefined){
           comment.rating = 0;
         }
         addComment($stateParams.id, comment);
         $scope.whisky.comments.push(comment);
-        reset(comment);
+        reset();
 
         //reload getWhiskyById - calculate rating
         getWhiskyById($stateParams);

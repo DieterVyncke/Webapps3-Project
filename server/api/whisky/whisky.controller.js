@@ -13,7 +13,6 @@ Whisky.schema.plugin(deepPopulate, {
     },
   }
 });
-// Whisky.register();
 
 // Get list of whiskys
 exports.index = function(req, res) {
@@ -34,9 +33,57 @@ exports.show = function(req, res) {
 
 // Creates a new whisky in the DB.
 exports.create = function(req, res) {
+  //console.log(req.body);
   Whisky.create(req.body, function(err, whisky) {
     if(err) { return handleError(res, err); }
-    return res.status(201).json(whisky);
+
+    User.findById(whisky.user, function (err, user) {
+      if (err) return next(err);
+      if (!user) return res.status(401).send('Unauthorized');
+
+      user.whiskies.push(whisky);
+      user.save();
+
+      whisky.user = user;
+      whisky.save();
+        return res.status(201).json(whisky);
+    });
+  });
+};
+
+// Deletes a whisky from the DB.
+exports.destroy = function(req, res) {
+  Whisky.findById(req.params.id, function (err, whisky) {
+    if(err) { return handleError(res, err); }
+    if(!whisky) { return res.status(404).send('Not Found'); }
+
+    console.log(whisky);
+
+    User.findById(whisky.user, function (err, user) {
+      if (err) return next(err);
+      if (!user) return res.status(401).send('Unauthorized');
+      user.whiskies.remove(whisky);
+      user.save();
+    });
+
+    whisky.remove(function(err) {
+      if(err) { return handleError(res, err); }
+      return res.status(204).send('No Content');
+    });
+  });
+};
+
+// Updates an existing whisky in the DB.
+exports.update = function(req, res) {
+  if(req.body._id) { delete req.body._id; }
+  Whisky.findById(req.params.id, function (err, whisky) {
+    if (err) { return handleError(res, err); }
+    if(!whisky) { return res.status(404).send('Not Found'); }
+    var updated = _.merge(whisky, req.body);
+    updated.save(function (err) {
+      if (err) { return handleError(res, err); }
+      return res.status(200).json(whisky);
+    });
   });
 };
 

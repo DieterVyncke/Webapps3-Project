@@ -3,7 +3,7 @@
   <img ng-src="../assets/images/large-banner.jpg"/>
   <div class="data-wrapper">
     <div class="inner-content">
-          <h1 class="title">Het eeuwe levenswater</h1>
+          <h1 class="title">Het eeuwige levenswater</h1>
           <h6 class="subtext">Lorem Ipsum is simply dummy text of the printing and typesetting<br/>
               industry. Lorem Ipsum has been the industry's standard dummy<br/>
               text ever since the 1500s, when an unknown printer took a galley of t</h6>
@@ -23,7 +23,7 @@
           </div>
           <div class="text-container">
             <h2><a ui-sref="whiskyDetail({id:whisky._id})">
-              {{ whisky.name  | limitTo: 20 }}{{ whisky.name.length  > 20 ? '...' : ''}}
+              {{ whisky.name  | limitTo: 15 }}{{ whisky.name.length  > 15 ? '...' : ''}}
             </a></h2>
             <h3 ng-show="whisky.rating"><uib-rating ng-model="whisky.rating" max="5" readonly="true"></uib-rating> - ({{whisky.comments.length}}
               {{whisky.comments.length == 1 ? "rating" : "ratings"}})</h3>
@@ -36,14 +36,14 @@
     <div class="header-container col-lg-12">
       <h1 class="page-header center">Top rated</h1>
       <div class="whisky-overview  col-lg-3 col-md-3 col-sm-6 col-xs-6"
-      ng-repeat="whisky in whiskys | limitTo : 4  | orderBy: 'rating'">
+      ng-repeat="whisky in whiskys | orderBy:'rating' | limitTo:4">
         <div class="inner-content">
           <div class="image-container">
             <img ng-src="{{whisky.image}}"/>
           </div>
           <div class="text-container">
             <h2><a ui-sref="whiskyDetail({id:whisky._id})">
-              {{ whisky.name  | limitTo: 20 }}{{whisky.name.length  > 20 ? '...' : ''}}
+              {{ whisky.name  | limitTo: 15 }}{{whisky.name.length  > 15 ? '...' : ''}}
             </a></h2>
             <h3 ng-show="whisky.rating"><uib-rating ng-model="whisky.rating" max="5" readonly="true"></uib-rating> - ({{whisky.comments.length}}
               {{whisky.comments.length == 1 ? "rating" : "ratings"}})</h3>

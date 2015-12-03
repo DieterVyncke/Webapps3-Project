@@ -14,7 +14,8 @@ var UserSchema = new Schema({
   hashedPassword: String,
   provider: String,
   salt: String,
-  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'comment'}]
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
+  whiskies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Whisky'}]
 });
 
 /**

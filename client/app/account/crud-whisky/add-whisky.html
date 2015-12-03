@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="page-header">Add Whisky</h1>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="add(newWhisky)" novalidate>
+        <div class="form-group" show-errors>
+          <div class="form-container delete-padding col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <input name="name" type="text" ng-model="newWhisky.name" placeholder="Title"
+            class="form-control" required/>
+             <p class="help-block" ng-if="form.name.$error.required">Name is required</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-container delete-padding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <input name="color" type="text" ng-model="newWhisky.color" placeholder="Color"
+            class="form-control"/>
+          </div>
+          <div class="form-container col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <input name="percentage" type="text" ng-model="newWhisky.percentage" placeholder="Percentage"
+            class="form-control"/>
+          </div>
+          <div class="form-container delete-padding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <input name="years" type="text" ng-model="newWhisky.years" placeholder="Years"
+            class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-container delete-padding col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <input name="targetprice" min="0" type="number" ng-model="newWhisky.targetprice" placeholder="Target price"
+            class="form-control"/>
+          </div>
+          <div class="form-container rare-checkbox col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label>Rare?:
+              <input type="checkbox" ng-model="newWhisky.rare"/>
+            </label>
+          </div>
+          <div class="form-container delete-padding col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <input name="region" type="text" ng-model="newWhisky.region" placeholder="Region"
+            class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-container delete-padding col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <input name="image" type="text" ng-model="newWhisky.image" placeholder="Image url"
+            class="form-control"/>
+          </div>
+        </div>
+        <div class="form-textarea-container form-group">
+          <textarea name="description" type="text" ng-model="newWhisky.description" placeholder="Description" class="form-control" />
+        </div>
+        <div class="form-textarea-container form-group">
+          <textarea name="taste" type="text" ng-model="newWhisky.taste" placeholder="Overall taste" class="form-control" />
+        </div>
+        <div class="form-textarea-container form-group">
+          <textarea name="nose" type="text" ng-model="newWhisky.nose" placeholder="Nose" class="form-control" />
+        </div>
+        <div class="submit-button">
+          <button type="submit">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
